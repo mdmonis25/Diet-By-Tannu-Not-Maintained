@@ -1,6 +1,6 @@
 /*-----------------------------------------------------------------------------------
 
-    Theme Name: Habitro - Nutrition Health and Diet HTML Template
+    Theme Name: Diet By Tannu - Nutrition Health and Diet for you
     Description: Nutrition Health and Diet HTML Template
     Author: Website Design Templates
     Version: 2.0
