@@ -2,6 +2,7 @@ var express = require('express');
 var http = require('http');
 var path = require('path')
 var nodemailer = require('nodemailer');
+const { error } = require('console');
 
 var app = express();
 var server = http.Server(app);
@@ -24,6 +25,31 @@ app.post("/send_email",function(req, response){
     let to = "mdmonis.work@gmail.com";
     let subject = req.body.subject;
     let message = req.body.message;
+
+    let transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth:{
+            user: 'mdmonis.work@gmail.com',
+            pass: 'nqzkiqoujxcdxoeq'
+        }
+    })
+
+    let mailOptions = {
+        from: from,
+        to: to,
+        subject: subject,
+        text: message
+    }
+
+    transporter.sendMail(mailOptions, function(error, info){
+        if(error){
+            console.log(error)
+        }
+        else{
+            console.log("Email Send: "+ info.response)
+        }
+        response.redirect("/")
+    })
 
 
 })
